@@ -1,0 +1,37 @@
+extends layout
+
+block content
+    div.card-container
+        each pokemon in pokemons
+            div.card
+                div.header
+                    div.name=pokemon.name
+                    div.pokemon-hp=pokemon.hp
+                    div.type
+                        img(src = pokemon.type)
+                div.pokemon-pic
+                    img(src = pokemon.picture class='pokemon')
+                div.moves
+                    div.move1
+                        div.cost
+                            img(src = pokemon.move1cost)
+                        div.move-name=pokemon.move1name
+                        div.move-power=pokemon.move1power
+                    div.move2
+                        div.cost
+                            img(src = pokemon.move2cost1)
+                            img(src = pokemon.move2cost2)
+                            img(src = pokemon.move2cost3)
+                        div.move-name=pokemon.move2name
+                        div.move-power=pokemon.move2power
+                div.info
+                    div.weakness='weakness'
+                        img(src = pokemon.weakness)
+                    div.resistance='resistance'
+                        img(src = pokemon.resistance)
+                    div.retreat-cost='retreat cost'
+                        img(src = pokemon.retreatcost)
+
+
+
+
