@@ -24,6 +24,7 @@ a {
   display: flex;
   padding: 48px;
   gap: 8px;
+  flex-wrap: wrap;
 
 
 }
