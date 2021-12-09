@@ -2,7 +2,14 @@ extends layout
 
 block content
     div.card-container
+        div.container
+            div.add-button-row
+                a.button.save(href="/add") Add Pokemon
         each pokemon in pokemons
+            div.edit
+                a(href=`/edit/${pokemon.id}`) Edit
+            div.delete
+                a(href=`/delete/${pokemon.id}`) Delete
             div.card
                 div.header
                     div.name=pokemon.name
