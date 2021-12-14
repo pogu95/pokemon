@@ -2,6 +2,8 @@ const {Pokemon} = require('../models')
 module.exports.pokemonCard =  async function(req, res, next) {
     const pokemons = await Pokemon.findAll();
 
+
+
     res.render('index', {pokemons});
 };
 
@@ -98,4 +100,26 @@ module.exports.addPokemon = async function(req,res){
         }
     );
     res.redirect('/');
+}
+module.exports.randomPokemon = async function(req,res) {
+    const pokemons = await Pokemon.findAll();
+    let searchRandom = req.query.random || false;
+    if (pokemons.length > 0 && searchRandom) {
+        let randomIndex = getRandomInt(pokemons.length);
+        pokemon = [pokemons[randomIndex]];
+    }
+    res.render('random',{searchRandom})
+}
+
+
+
+
+
+
+
+
+
+
+function getRandomInt(max) {
+    return Math.floor(Math.random()*max)
 }

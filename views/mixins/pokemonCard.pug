@@ -1,13 +1,12 @@
-extends layout
+mixins pokemonCard(pokemon)
 
-block content
     div.card-container
         div.container
             div.add-button-row
                 a.button.save(href="/random") Random Pokemon
             div.add-button-row
                 a.button.save(href="/add") Add Pokemon
-        each pokemon in pokemons
+
             div.edit
                 a(href=`/edit/${pokemon.id}`) Edit
             div.delete
@@ -35,11 +34,11 @@ block content
                         div.move-power=pokemon.move2power
                 div.info
                     div.weakness='weakness'
-                        img(src = pokemon.weakness)
+                    img(src = pokemon.weakness)
                     div.resistance='resistance'
-                        img(src = pokemon.resistance)
+                    img(src = pokemon.resistance)
                     div.retreat-cost='retreat cost'
-                        img(src = pokemon.retreatcost)
+                    img(src = pokemon.retreatcost)
 
 
 

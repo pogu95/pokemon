@@ -2,7 +2,7 @@ extends layout
 
 block content
     include mixins/pokemonForm
-    +pokemonForm(pokemons, `/edit/${pokemon.id}`, 'edit', 'Edit Pokemon')
+    +pokemonForm(pokemons, `/edit/${pokemons.id}`, 'edit', 'Edit Pokemon')
     div.form-panel
         div.header Edit Pokemon Card
             form(action=`/edit/${pokemons.id}` method='post')

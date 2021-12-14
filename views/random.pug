@@ -1,0 +1,5 @@
+extends layout
+
+block content
+   include mixins/pokemonCard
+    +pokemonCard(pokemons, `/random`, 'random', 'Random Pokemon')
