@@ -1,10 +1,30 @@
 const {Pokemon} = require('../models')
-module.exports.pokemonCard =  async function(req, res, next) {
-    const pokemons = await Pokemon.findAll();
+const categories = ['https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Pok%C3%A9mon_Electric_Type_Icon.svg/2048px-Pok%C3%A9mon_Electric_Type_Icon.svg.png', 'https://www.pokebeach.com/news/1211/pokemon-tcg-dragon-type-symbol.png']
+module.exports.pokemonCard =  async function(req, res,) {
+    let searchCategories = ['All'];
+    for(let i = 0; i<categories.length; i++){
+        searchCategories.push(categories[i]);
+    }
+    let pokemons;
+    let searchCategorey = req.query.type || 'All';
+    let searchRandom = req.query.random || false;
+    if (searchCategorey==='All'){
+        pokemons = await Pokemon.findAll();
+    } else {
+        pokemons = Pokemon.findAll( {
+            where: {
+                type: searchCategorey
+            }
+        });
+    }
+    if (pokemons.length > 0 && searchRandom) {
+        let randomIndex = getRandomInt(pokemons.length);
+        pokemons = [pokemons[randomIndex]];
+    }
 
 
 
-    res.render('index', {pokemons});
+    res.render('index', {pokemons, categories : searchCategories, searchCategorey, searchRandom});
 };
 
 module.exports.renderEditForm = async function(req,res,next) {
@@ -101,15 +121,7 @@ module.exports.addPokemon = async function(req,res){
     );
     res.redirect('/');
 }
-module.exports.randomPokemon = async function(req,res) {
-    const pokemons = await Pokemon.findAll();
-    let searchRandom = req.query.random || false;
-    if (pokemons.length > 0 && searchRandom) {
-        let randomIndex = getRandomInt(pokemons.length);
-        pokemon = [pokemons[randomIndex]];
-    }
-    res.render('random',{searchRandom})
-}
+
 
 
 

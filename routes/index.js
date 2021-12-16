@@ -8,7 +8,7 @@ router.post('/edit/:id', pokemonController.updatePokemon);
 router.get('/delete/:id', pokemonController.deletePokemon);
 router.get('/add', pokemonController.renderAddForm);
 router.post('/add', pokemonController.addPokemon);
-router.get('/random', pokemonController.randomPokemon);
+
 
 
 

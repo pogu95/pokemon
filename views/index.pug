@@ -2,12 +2,24 @@ extends layout
 
 block content
     div.card-container
+        form(action='/' method='get')
+            div.form-input
+                label(for='categorey') Category
+                select(id='categorey' name= 'categorey' autocomplete='off')
+                    each categorey in categories
+                        option(value=categorey selected =(categorey === searchCategorey)) #{categorey}
+                div.form-input
+                    label(for='random') Random
+                    input(type='checkbox' name='random' id='random' checked=searchRandom)
+            button.button.save(type='submit') Filter
+
+    div.card-container
         div.container
-            div.add-button-row
-                a.button.save(href="/random") Random Pokemon
+
             div.add-button-row
                 a.button.save(href="/add") Add Pokemon
         each pokemon in pokemons
+
             div.edit
                 a(href=`/edit/${pokemon.id}`) Edit
             div.delete
