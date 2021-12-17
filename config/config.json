@@ -1,8 +1,8 @@
 {
   "development": {
-    "username": "panesar_r66d",
-    "password": "soft205Tree",
-    "database": "panesar_r66d_db",
+    "username": "stalians_8yd3",
+    "password": "furry911Car",
+    "database": "stalians_8yd3_db",
     "host": "web-applications.caj7agbzaqsl.us-west-1.rds.amazonaws.com",
     "dialect": "postgres"
   },
