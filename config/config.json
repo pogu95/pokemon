@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "stalians_8yd3",
-    "password": "furry911Car",
+    "password": "furry911Cat",
     "database": "stalians_8yd3_db",
     "host": "web-applications.caj7agbzaqsl.us-west-1.rds.amazonaws.com",
     "dialect": "postgres"
